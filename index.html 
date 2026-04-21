@@ -22,7 +22,7 @@
 <input type="text" od= "taskInput" class="form-control" placeholder="Enter your task!">
 </div>
 <div class="col-4">
-<button id="addTaskBtn" class= btn btn-primary w-100">Add task! </button>
+<button id="addTasksBtn" class= btn btn-primary w-100">Add task! </button>
 </div>
 <div class="row">
 <div class ="col-12">
