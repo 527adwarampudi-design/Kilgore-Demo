@@ -1,31 +1,147 @@
 body {
-  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+  min-height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at top left, #eaf6e9 0%, #9caf88 45%, #6a8c5b 100%);
+  color: #2f3e2f;
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-  color: #333;
-  text-align: center;
-  margin-top: 50px;
+#confetti-container {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1000;
 }
-p {
-  color: #555;
-  font-size: 18px;
-  text-align: center;
-  margin-top: 20px;
+
+.confetti-piece {
+  position: absolute;
+  top: -10px;
+  will-change: transform, opacity;
+  animation: confetti-fall var(--duration, 2s) cubic-bezier(0.33, 1, 0.68, 1) forwards,
+  confetti-spin var(--duration, 2s) linear forwards;
 }
-button {
-  display: block;
-  margin: 30px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #ff6f61;
-  color: white;
+
+@keyframes confetti-fall {
+  to {
+    transform: translate3d(0, 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(720deg); }
+}
+
+/* Card */
+.container {
+  background: rgba(255, 255, 255, 0.78);
+  padding: 30px;
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+h2 {
+  color: #2f3e2f;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  color: #4f6f52;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* Counters */
+#taskCounter, #completedCounter {
+  color: #6b8f71;
+}
+
+/* Input */
+input {
+  border-radius: 20px;
+  border: 1px solid #b7c9b0;
+}
+
+input:focus {
+  box-shadow: 0 0 8px rgba(107, 143, 113, 0.6);
+  border-color: #6b8f71;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #4f6f52;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
+
+.btn-primary:hover {
+  background-color: #35513d;
+}
+
+.btn-danger {
+  background-color: #b7c9b0;
+  border: none;
+  color: #2f3e2f;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.btn-danger:hover {
+  background-color: #9aa787;
+}
+
+.btn-success {
+  background-color: #85a579;
+  border: none;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #6d8a63;
+}
+
+/* Tasks */
+.list-group-item {
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: #f4f8f3;
+  border: none;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.list-group-item:hover {
+  transform: scale(1.02);
+}
+
+/* Completed */
+.completed {
+  text-decoration: line-through;
+  color: #5b7058;
+  background: #e7f0e7;
+  opacity: 0.9;
+}
+
+.list-group-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Button animation */
+button {
+  transition: 0.2s;
+}
+
 button:hover {
-  background-color: #ff3b2e;
+  transform: translateY(-2px);
 }
-
-
