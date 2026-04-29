@@ -6,6 +6,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Confetti */
 #confetti-container {
   pointer-events: none;
   position: fixed;
@@ -17,21 +18,14 @@ body {
 .confetti-piece {
   position: absolute;
   top: -10px;
-  will-change: transform, opacity;
-  animation: confetti-fall var(--duration, 2s) cubic-bezier(0.33, 1, 0.68, 1) forwards,
-  confetti-spin var(--duration, 2s) linear forwards;
+  animation: confetti-fall var(--duration, 2s) ease-out forwards;
 }
 
 @keyframes confetti-fall {
   to {
-    transform: translate3d(0, 110vh, 0) rotate(360deg);
+    transform: translateY(110vh) rotate(360deg);
     opacity: 0;
   }
-}
-
-@keyframes confetti-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(720deg); }
 }
 
 /* Card */
@@ -40,16 +34,13 @@ body {
   padding: 30px;
   border-radius: 28px;
   backdrop-filter: blur(14px);
-
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Title */
 h2 {
-  color: #2f3e2f;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.04em;
 }
 
 .subtitle {
@@ -80,8 +71,6 @@ input:focus {
 .btn-primary {
   background-color: #4f6f52;
   border: none;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
 }
 
 .btn-primary:hover {
@@ -92,8 +81,6 @@ input:focus {
   background-color: #b7c9b0;
   border: none;
   color: #2f3e2f;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
 }
 
 .btn-danger:hover {
@@ -103,7 +90,7 @@ input:focus {
 .btn-success {
   background-color: #85a579;
   border: none;
-  color: #fff;
+  color: white;
 }
 
 .btn-success:hover {
@@ -116,7 +103,6 @@ input:focus {
   margin-bottom: 8px;
   background: #f4f8f3;
   border: none;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
 }
@@ -131,10 +117,6 @@ input:focus {
   color: #5b7058;
   background: #e7f0e7;
   opacity: 0.9;
-}
-
-.list-group-item {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Button animation */
